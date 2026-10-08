@@ -3,7 +3,7 @@ import { module } from "../module";
 
 export async function createModules() {
 	// 加载 uni_modules 插件
-	const files: any = import.meta.glob("/uni_modules/cool-*/config.ts", {
+	const files: any = import.meta.glob("/src/uni_modules/cool-*/config.ts", {
 		eager: true,
 	});
 

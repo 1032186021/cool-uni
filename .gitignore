@@ -14,3 +14,6 @@ npm-debug.log*
 *.njsproj
 *.sln
 *.sw*
+
+# Local env (may contain LAN IP for backend proxy)
+.env.local

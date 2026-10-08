@@ -1,5 +1,49 @@
 # COOL-UNI 项目脚手架
 
+## 🚀 快速开始（clone 即跑）
+
+本仓库已适配 **uni CLI**（`@dcloudio/vite-plugin-uni`），并内置 **Tailwind CSS**，无需 HBuilderX，clone 后直接启动。
+
+```bash
+# 1) 安装依赖（pnpm 12 已在 pnpm-workspace.yaml 配好 allowBuilds 白名单）
+pnpm install
+
+# 2) 启动 H5（默认 http://127.0.0.1:9900）
+npm run dev
+#    等价于：pnpm run dev:h5
+
+# 其它平台
+npm run dev:mp        # 微信小程序（uni CLI，产物 dist/build/mp-weixin）
+npm run build:h5      # H5 生产构建
+npm run build:mp      # 小程序生产构建
+```
+
+> 也支持 `npm install` / `npm run dev`。若用 npm，遇到 esbuild/vue-demi 的 postinstall 被跳过时执行
+> `npm i --foreground-scripts` 或改用 pnpm（更推荐）。
+
+### 环境要求
+
+- Node ≥ 18
+- pnpm 12+（推荐）/ npm
+
+### Tailwind CSS 已内置
+
+- `tailwind.config.cjs` + `postcss.config.cjs` 就绪；三个 `@import "tailwindcss/*"` 已在 `src/App.vue` 引入。
+- 已关闭 `preflight`（避免重置 uni-app 内置的 `view/button` 样式）。
+- `spacing / fontSize / borderRadius` 已按 **rpx** 刻度定制（uni-app/小程序原生单位），`p-4`、`text-lg` 等直接可用。
+- 额外提供语义色 `ink/line/success/warning/error/info/surface/bg` 与 `shadow-card`。
+
+### 后端联调
+
+代理配置在 `src/config/proxy.ts`：`/dev/` 默认指向 `http://127.0.0.1:8001`。
+跨机联调时在项目根新建 `.env.local` 写入 `VITE_API_HOST=http://<后端IP>:8001` 即可覆盖。
+
+### 常见问题
+
+见 **[CLI适配修复指南.md](./CLI适配修复指南.md)**——记录了把本脚手架从 HBuilderX 迁到 uni CLI 所需的全部修复（目录布局、`uni_modules` 位置、vite 兼容补丁、平台切换、内存 OOM 缓解等）。遇到 `页面全乱 / 组件无样式`、`dev 卡 Compiling...`、`sass not found`、`uni: not found` 等问题，先查该文档。
+
+---
+
 ## 简介
 
 [演示、文档地址](https://uni-docs.cool-js.com/)

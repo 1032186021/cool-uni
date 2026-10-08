@@ -76,8 +76,8 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import Bg from "/pages/demo/static/bg1.png";
-import Avatar from "/pages/demo/static/avatar1.png";
+import Bg from "../static/bg1.png";
+import Avatar from "../static/avatar1.png";
 
 const previewList = ref([Bg, Avatar]);
 </script>

@@ -1,0 +1,8 @@
+# pnpm 12 构建脚本白名单（allowBuilds）
+# 这些包的 postinstall 需要执行以生成二进制/垫片，否则构建会失败。
+allowBuilds:
+  esbuild: true
+  "@parcel/watcher": true
+  vue-demi: true
+  core-js: true
+  core-js-pure: true
